@@ -15,8 +15,10 @@ function Home () {
       <>
         <TheNav
           add ={<Abutton/>}
-        
-          />
+       />
+          <h1>
+          Welcome To Cooking With Family
+          </h1>
       </>
     )
 };

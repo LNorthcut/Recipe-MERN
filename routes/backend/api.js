@@ -5,6 +5,12 @@ router.route("/")
     .get(rController.searchingAll);
 
 router.route("/add")
-    .post(rController.addInfo)
+    .post(rController.addInfo);
+    
+    // router.route("/login", (req, res)=>{
+    //     res.send({
+    //         token: "testingToken"
+    //     });
+    //   });
 
 module.exports = router;

@@ -1,4 +1,5 @@
 const express = require('express');
+const cors = require('cors');
 
 const PORT = process.env.PORT || 8080;
 
@@ -14,7 +15,8 @@ const routes = require('./routes')
 // })
 
 ////// Informing the server to use the client/build folder for clientSide renderding
-app.use(express.static("client/build"))
+app.use(express.static("client/build"));
+app.use(cors());
 
 // Parse application body as JSON
 app.use(express.urlencoded({ extended: true }));
