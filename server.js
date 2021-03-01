@@ -8,6 +8,8 @@ const mongoose = require('mongoose');
 //importing the routes
 const routes = require('./routes')
 
+const bodyParser = require('body-parser');
+// require('dotenv').config();
 /////// Prior to adding client side rendering (React) assure your server runs then deploy ////// 
 
 // app.get('/', (req, res)=>{
@@ -23,6 +25,10 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 
+//middleware
+app.use(bodyParser.json());
+app.use(cors());
+
 
 ////// here the routes are beig used
 app.use(routes)
@@ -33,7 +39,8 @@ mongoose.connect(
     useCreateIndex: true,
     useNewUrlParser: true
   }
-)
+) .then(() => console.log('DB Connected'));
+
 // Start our server so that it can begin listening to client requests.
 app.listen(PORT, () =>
   console.log(`Server listening on: http://localhost:${PORT}`)

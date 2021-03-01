@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Home from './Home/';
 import Login from './Login/';
 import useToken from './useToken';
+import Register from './SignUp/';
 
 const { default: TheNav } = require("../components/NavBar")
 
@@ -15,6 +16,13 @@ function setToken(userToken) {
     sessionStorage.setItem('token', JSON.stringify(userToken));
 
 }
+// const authGuard = (Component) => () => {
+//     return localStorage.getItem("token") ? (
+//       <Component />
+//     ) : (
+//       <Redirect to="/login" />
+//     );
+//   };
 
 function getToken() {
     // This method takes a key as an argument and returns the string value. Convert the string to an object using JSON.parse, then return the value of token:
@@ -25,14 +33,22 @@ function getToken() {
 
 
 function LandingLocation(props) {
-    // grabbing the desired token
+    // // grabbing the desired token
     const {token, setToken}= useToken();
     // const token = getToken();
 
-    // conditional statement
+    // // conditional statement
     if(!token) {
         return <Login setToken={setToken} />
       }
+    // const authGuard = (Component) => () => {
+    //     return localStorage.getItem("token") ? (
+    //       <Component />
+    //     ) : (
+    //       <Redirect to="/login" />
+    //     );
+    //   };
+      
     
     
     return (
@@ -43,8 +59,10 @@ function LandingLocation(props) {
                 <>
                 
                 <Switch>
-                    <Route exact path="/" component={Home}/>
+                    <Route exact path="/" component={Home} />
                     <Route exact path="/add" component={Add}/>
+                    <Route exact path="/login" component={Login}  />
+                    <Route exact path="/register" component={Register}  />
                 </Switch>
                 </>
             </Router>
