@@ -6,7 +6,10 @@ router.route("/")
 
 router.route("/add")
     .post(rController.addInfo);
+
     
+router.route("/find/:id")
+    .get(rController.findMe)
     // router.route("/login", (req, res)=>{
     //     res.send({
     //         token: "testingToken"

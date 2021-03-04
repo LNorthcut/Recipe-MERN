@@ -1,12 +1,15 @@
 import React, {useState} from 'react';
-import Add from "./Add";
+import Find from "./Find/";
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Home from './Home/';
 import Login from './Login/';
 import useToken from './useToken';
+import AddR from './Add';
+// import { Layout } from 'antd';
 
 const { default: TheNav } = require("../components/NavBar")
 
+// const { Header, Footer, Sider, Content } = Layout;
 
 // Session Storage
 
@@ -36,7 +39,7 @@ function LandingLocation(props) {
     
     
     return (
-        <>
+        <div>
             {/* <TheNav/>
    <Add/> */}
             <Router>
@@ -44,11 +47,14 @@ function LandingLocation(props) {
                 
                 <Switch>
                     <Route exact path="/" component={Home}/>
-                    <Route exact path="/add" component={Add}/>
+                    <Route exact path="/find" component={Find}/>
+                    <Route exact path="/add" component={AddR}/>
+
                 </Switch>
                 </>
+                {/* <Footer>Footer</Footer> */}
             </Router>
-        </>
+        </div>
     )
 }
 
