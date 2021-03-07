@@ -7,6 +7,7 @@ import useToken from './useToken';
 import AddR from './Add';
 // import { Layout } from 'antd';
 
+
 const { default: TheNav } = require("../components/NavBar")
 
 // const { Header, Footer, Sider, Content } = Layout;
@@ -19,12 +20,12 @@ function setToken(userToken) {
 
 }
 
-function getToken() {
-    // This method takes a key as an argument and returns the string value. Convert the string to an object using JSON.parse, then return the value of token:
-    const tokenString = sessionStorage.getItem('token');
-    const userToken = JSON.parse(tokenString);
-    return userToken?.token
-}
+// function getToken() {
+//     // This method takes a key as an argument and returns the string value. Convert the string to an object using JSON.parse, then return the value of token:
+//     const tokenString = sessionStorage.getItem('token');
+//     const userToken = JSON.parse(tokenString);
+//     return userToken?.token
+// }
 
 
 function LandingLocation(props) {
@@ -37,7 +38,7 @@ function LandingLocation(props) {
         return <Login setToken={setToken} />
       }
     
-    
+  
     return (
         <div>
             {/* <TheNav/>

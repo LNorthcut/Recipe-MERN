@@ -8,7 +8,7 @@ module.exports ={
         .catch(err=>res.status(422).json(err));
         
     },
-    addInfo: function(req, res){
+    addRecipe: function(req, res){
         db.Instructions.create(req.body)
         .then(dbModel=> res.json(dbModel))
         .catch(err=>res.status(422).json(err));

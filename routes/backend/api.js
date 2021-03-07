@@ -5,7 +5,7 @@ router.route("/")
     .get(rController.searchingAll);
 
 router.route("/add")
-    .post(rController.addInfo);
+    .post(rController.addRecipe);
 
     
 router.route("/find/:id")
