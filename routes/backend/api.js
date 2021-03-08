@@ -1,15 +1,21 @@
 const router = require("express").Router();
-const rController = require("../../controllers/recipe.js");
+const rModel = require("../../models/recipe_models");
 
-router.route("/")
-    .get(rController.searchingAll);
 
-router.route("/add")
-    .post(rController.addRecipe);
+
+    // router.route('/').get((req, res) => {
+    //     user.find((error, data) => {
+    //         if (error) {
+    //             return next(error)
+    //         } else {
+    //     res.json(data)
+    //         }
+    //     })
+    // })
 
     
-router.route("/find/:id")
-    .get(rController.findMe)
+// router.route("/find/:id")
+//     .get(rController.findMe)
     // router.route("/login", (req, res)=>{
     //     res.send({
     //         token: "testingToken"

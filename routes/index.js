@@ -3,8 +3,18 @@ const mongoose = require('mongoose')
 const router = require("express").Router();
 const serveSide = require("./backend/api");
 const Instructions = require ("../models/recipe_models.js");
-router.use("/api", serveSide );
-router.use("/login", (req, res)=>{
+
+router.route("/api/").get((req, res)=> {
+    Instructions.find((res, err) => {
+        if(err){
+            return (err)
+        }else {
+            console.log(data);
+            res.json(data);
+        }
+    });
+});
+    router.use("/login", (req, res)=>{
     res.send({
         token: "testingToken"
     });

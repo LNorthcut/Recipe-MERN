@@ -11,7 +11,7 @@ const { Option } = Select;
 const { Content } = Layout;
 
 function AddR() {
-  const [recipe, setRecipe] = useState({ _id: '', recipe_name: ''});
+  const [recipe, setRecipe] = useState({ _id: '', recipe_name: '', author_name: ''});
   
   const apiUrl = "http://localhost:8080/api/create";
 
@@ -19,7 +19,7 @@ function AddR() {
   const saveRecipe = (e) => {
     // setShowLoading(true);
     e.preventDefault();
-    const data = { recipe_name: recipe.recipe_name};
+    const data = { recipe_name: recipe.recipe_name, author_name: recipe.author_name};
     axios.post(apiUrl, data)
       .then((result) => {
        console.log(result.data)
@@ -53,8 +53,15 @@ function AddR() {
     <>
       <TheNav />
       <Content>
+      
         <input
-        type="text" name="recipe_name" id="recipe_name" placeholder="Enter product name" value={recipe.r_name} onChange={onChange} 
+        type="text" name="recipe_name" id="recipe_name" placeholder="Enter recipe name" value={recipe.r_name} onChange={onChange} 
+          className="btn btn-primary ml-2"
+        ></input>
+
+
+        <input
+        type="text" name="author_name" id="author_name" placeholder="Enter author name" value={recipe.a_name} onChange={onChange} 
           className="btn btn-primary ml-2"
         ></input>
         <button onClick={saveRecipe}>Save</button>

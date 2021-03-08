@@ -8,7 +8,7 @@ import AddR from './Add';
 // import { Layout } from 'antd';
 
 
-const { default: TheNav } = require("../components/NavBar")
+const { default: TheNav } = require("../components/NavBar");
 
 // const { Header, Footer, Sider, Content } = Layout;
 
