@@ -6,10 +6,12 @@ const theRecipes = new Schema({
     author_name: {type: String},
     recipe_description: {type: [String]},
     duration: {type: Number},
-    steps: {type: [String]},
-    date: {type: Date}
-
-})
+    steps: {type: [String]}
+},
+{
+    timestamps: true
+ 
+});
 // creates a new entry
 const Instructions = mongoose.model("Instructions", theRecipes);
 module.exports = Instructions;

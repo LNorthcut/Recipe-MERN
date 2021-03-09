@@ -28,7 +28,7 @@ app.use(express.json());
 app.use(routes)
 
 mongoose.connect(
-  process.env.MONGODB_URI || "mongodb://localhost:27017/Recipe",
+  process.env.MONGODB_URI || "mongodb://localhost/Recipe",
   {
     useCreateIndex: true,
     useNewUrlParser: true

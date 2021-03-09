@@ -4,10 +4,10 @@ const router = require("express").Router();
 const serveSide = require("./backend/api");
 const Instructions = require ("../models/recipe_models.js");
 
-router.route("/api/").get((req, res)=> {
-    Instructions.find((res, err) => {
+router.route('/api').get((req, res, next)=> {
+    Instructions.find((data, err) => {
         if(err){
-            return (err)
+            return next (err);
         }else {
             console.log(data);
             res.json(data);
