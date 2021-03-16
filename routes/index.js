@@ -4,15 +4,9 @@ const router = require("express").Router();
 const serveSide = require("./backend/api");
 const Instructions = require ("../models/recipe_models.js");
 
-router.route('/api').get((req, res, next)=> {
-    Instructions.find((data, err) => {
-        if(err){
-            return next (err);
-        }else {
-            console.log(data);
-            res.json(data);
-        }
-    });
+router.route('/get').get((req, res)=> {
+    Instructions.find()
+    .then(foundRecipes => res.json(foundRecipes))
 });
     router.use("/login", (req, res)=>{
     res.send({
@@ -27,10 +21,11 @@ router.route('/api').get((req, res, next)=> {
         } else {
             console.log(data)
             res.json(data)
+
         }
     })
 });
 router.use((req, res)=> {
-    res.sendFile(path.join(__dirname, "../client/build/index.html"))
+    res.sendFile(path.join(__dirname, "../client/build/index.html"));
 })
 module.exports = router;

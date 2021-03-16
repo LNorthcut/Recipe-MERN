@@ -6,7 +6,7 @@ const PORT = process.env.PORT || 8080;
 const app = express();
 const mongoose = require('mongoose');
 //importing the routes
-const routes = require('./routes')
+// const routes = require('./routes')
 
 /////// Prior to adding client side rendering (React) assure your server runs then deploy ////// 
 
@@ -25,7 +25,7 @@ app.use(express.json());
 
 
 ////// here the routes are beig used
-app.use(routes)
+app.use("/", require("./routes"));
 
 mongoose.connect(
   process.env.MONGODB_URI || "mongodb://localhost/Recipe",
